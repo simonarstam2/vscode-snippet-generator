@@ -24,6 +24,75 @@ python snippet-generator.py test.txt > out.py
 | --desc | str | unspecified | The description of the snippet.|
 
 ## Examples
+### Example one
+Using snippet-generator on test.txt, and redirecting the output to out.txt with the parameters name set to "test test" and desc set to "nice". Check below to see the input file, and also the result of the output file.
+
 ```sh
 python snippet-generator.py test.txt --name test test --desc nice > out.txt
+```
+
+test.txt
+```js
+import React from 'react';
+
+export interface Props {
+  name: string;
+}
+
+export class Hello extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <View style={styles.root}>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  root: {
+    alignItems: 'center',
+    alignSelf: 'center',
+  }
+});
+```
+out.txt
+```json
+{
+  "test test": {
+    "prefix": [ "unspecified" ],
+    "body": [
+      "import React from 'react';",
+      "",
+      "export interface Props {",
+      "  name: string;",
+      "}",
+      "",
+      "export class Hello extends React.Component<Props> {",
+      "  constructor(props: Props) {",
+      "    super(props);",
+      "  }",
+      "",
+      "  render() {",
+      "    return (",
+      "      <View style={styles.root}>",
+      "      </View>",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+      "  root: {",
+      "    alignItems: 'center',",
+      "    alignSelf: 'center',",
+      "  }",
+      "});"
+    ],
+    "description": "nice"
+  }
+}
+
 ```
