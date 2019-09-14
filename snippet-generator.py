@@ -12,7 +12,7 @@ def main(args):
   indent_chars = "  "  # (2, 4, 8 spaces) or 1 tab
 
   print("{")
-  print(indent_chars + "\"" + args.name + "\": {")
+  print(indent_chars + "\"" + " ".join(args.name) + "\": {")
 
   def add_quotation(val):
     return "\"" + val + "\""
